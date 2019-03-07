@@ -1,5 +1,5 @@
 alias fastqc='/opt/binf/apps/FastQC-0.11.8/fastqc'
-PATH=$PATH:/opt/binf/apps/bowtie2-2.3.4.3
+PATH=$PATH:/opt/binf/apps/bowtie2-2.3.4.3:/opt/binf/apps/samblaster-0.1.24:/opt/binf/apps/samtools/bin
 
 cd
 mkdir ex1
