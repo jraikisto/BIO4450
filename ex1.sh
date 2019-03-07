@@ -4,9 +4,12 @@ PATH=$PATH:/opt/binf/apps/bowtie2-2.3.4.3:/opt/binf/apps/samblaster-0.1.24:/opt/
 cd
 mkdir ex1
 fastqc /student_data/BIO4450/data/ex1/tumor -o ./
+
 mkdir bowtie
 cd bowtie
 bowtie2-build /data/references/hg38_chr17.fa ./chr17
 mkdir index
 mv *.bt2 index
 bowtie2 -x index/chr17 -1 /student_data/BIO4450/data/ex1/tumor_1.fa.gz -2 /student_data/BIO4450/data/ex1/tumor_2.fa.gz -S tumor.sam -X 1000 -f
+
+samtools sort -o sorted_tumor.sam tumor.sam
