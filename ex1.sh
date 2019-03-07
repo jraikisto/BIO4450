@@ -1,3 +1,6 @@
+alias fastqc='/opt/binf/apps/FastQC-0.11.8/fastqc'
+PATH=$PATH:/opt/binf/apps/bowtie2-2.3.4.3
+
 cd
 mkdir ex1
 fastqc /student_data/BIO4450/data/ex1/tumor -o ./
