@@ -13,3 +13,9 @@ mv *.bt2 index
 bowtie2 -x index/chr17 -1 /student_data/BIO4450/data/ex1/tumor_1.fa.gz -2 /student_data/BIO4450/data/ex1/tumor_2.fa.gz -S tumor.sam -X 1000 -f
 
 samtools sort -o sorted_tumor.sam tumor.sam
+samblaster -i sorted_tumor.sam -o samblaster_tumor.sam -e
+
+
+samtools view  -O BAM samblaster_tumor.sam > tumor.bam
+samtools sort -o sorted_tumor.bam tumor.bam
+samtools index ./sorted_tumor.bam sorted_tumor.bam.bai 
