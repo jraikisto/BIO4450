@@ -18,4 +18,9 @@ samblaster -i sorted_tumor.sam -o samblaster_tumor.sam -e
 
 samtools view  -O BAM samblaster_tumor.sam > tumor.bam
 samtools sort -o sorted_tumor.bam tumor.bam
-samtools index ./sorted_tumor.bam sorted_tumor.bam.bai 
+samtools index ./sorted_tumor.bam sorted_tumor.bam.bai
+
+#Possible SNP in chr17:38_914_936
+
+samtools mpileup -B -f /data/references/hg38_chr17.fa ./bowtie/sorted_tumor.bam > tumor.pileup
+java -jar /opt/binf/apps/VarScan-2.3.9/VarScan.jar pileup2snp tumor.pileup --output-vcf 1 > tumor_snps.vcf
