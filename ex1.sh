@@ -1,4 +1,5 @@
 alias fastqc='/opt/binf/apps/FastQC-0.11.8/fastqc'
+alias annovar = '/opt/binf/apps/annovar-2018.04.16/annotate_variation.pl'
 PATH=$PATH:/opt/binf/apps/bowtie2-2.3.4.3:/opt/binf/apps/samblaster-0.1.24:/opt/binf/apps/samtools/bin
 
 cd
@@ -23,4 +24,8 @@ samtools index ./sorted_tumor.bam sorted_tumor.bam.bai
 #Possible SNP in chr17:38_914_936
 
 samtools mpileup -B -f /data/references/hg38_chr17.fa ./bowtie/sorted_tumor.bam > tumor.pileup
-java -jar /opt/binf/apps/VarScan-2.3.9/VarScan.jar pileup2snp tumor.pileup --output-vcf 1 > tumor_snps.vcf
+java -jar /opt/binf/apps/VarScan-2.3.9/VarScan.jar pileup2snp tumor.pileup -output-vcf 1 > tumor_snps.vcf
+
+mkdir annovar
+cd annovar
+annovar ../tumor_snps.vcf /student_data/BIO4450/data/references/annovar_hg38_databases/humandb/ --outfile tumor_annotation --buildver hg38 --remove --vcfinput --protocol refGene,cosmic70,1000g2014oct_all --operation g,f,f --otherinfo
