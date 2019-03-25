@@ -27,7 +27,7 @@ function countAR()
     println("Overlapping happens in $(length(reads)) transcripts when observing AR")
     println()
     println("Read amounts:")
-    for (id, i) in enumerate(reads)
+    for i in reads
         println("$(round(Int, i))")
     end
     println()
