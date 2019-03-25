@@ -6,6 +6,9 @@ function countAR()
     reads = zeros(0)
     for line in eachline(lines)
         parts = split(line, "\t")
+        if parts[3] != "exon"
+            continue
+        end
         fields = split(parts[9], ";")
         fields[1] = " " * fields[1]
 
