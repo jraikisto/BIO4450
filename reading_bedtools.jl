@@ -32,6 +32,5 @@ function countAR()
     end
     println()
     println("Total number of overlapping reads is $(round(Int, sum(reads)))")
-    #println(length(unique(reads)))
 end
 countAR()
