@@ -6,7 +6,7 @@ function countAR()
     reads = zeros(0)
     for line in eachline(lines)
         parts = split(line, "\t")
-        if parts[3] != "exon"
+        if parts[3] != "transcript"
             continue
         end
         fields = split(parts[9], ";")
