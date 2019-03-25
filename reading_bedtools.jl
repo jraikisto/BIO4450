@@ -24,7 +24,7 @@ function countAR()
             push!(reads, parse(Int64, parts[end]))
         end
     end
-    println("Overlapping happens in $(length(reads)) lines when observing AR")
+    println("Overlapping happens in $(length(reads)) transcripts when observing AR")
     println()
     println("Read amounts:")
     for (id, i) in enumerate(reads)
