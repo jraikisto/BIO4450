@@ -10,3 +10,5 @@ hisat2 -x ./hisat2/index/hg38 -1 /student_data/BIO4450/data/ex2/patient_1.fq.gz 
 cd bam
 samtools sort tumor.bam -o ./sorted_tumor.bam
 bedtools multicov -bams bam/sorted_tumor.bam -bed gencode.v29.annotation.gtf.gz > bedtools_out.bed
+
+julia reading_bedtools.jl
