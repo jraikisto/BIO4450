@@ -28,7 +28,7 @@ function countAR()
     println()
     println("Read amounts:")
     for (id, i) in enumerate(reads)
-        println("$(id)  $(round(Int, i))")
+        println("$(round(Int, i))")
     end
     println()
     println("Total number of overlapping reads is $(round(Int, sum(reads)))")
