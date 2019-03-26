@@ -32,13 +32,3 @@ function dont_parse(path::String)
     end
     return out
 end
-#=function only_counts(path)
-    lines = readlines(path)
-    #lines = open(path)
-
-
-    return map(readlines(path)) do y
-        parse(Int, split(y, '\t')[end])
-    end
-end
-=#
