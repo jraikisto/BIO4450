@@ -55,7 +55,7 @@ function parse_all(path::String)
 
     od = open("order.txt", "w")
     od_dir = map(dir) do y
-        replace(y, ".bed", "")
+        replace(y, ".bed" => "")
     end
     od_dir = od_dir .* "\n"
     write(od, od_dir...)
