@@ -1,7 +1,7 @@
 #readdlm gives out error if column contains stuff like "asd 23; eewf 32;"
 module bedtools
 
-export read_bed, only_counts, dont_parse, write_bed
+export read_bed, only_counts, dont_parse, write_bed, parse_all
 
 function read_bed(path::String)
     lines = readlines(path)
@@ -48,5 +48,19 @@ function write_bed(bed::Array; o="output.bed")
         write(t, "\n")
     end
     close(t)
+end
+
+function parse_all(dir::String)
+    dir = readdir(dir)
+    @info "Reading $(dir[1]) into the memory"
+    out = dont_parse(dir[1])
+
+    @info "Getting counts of each file"
+    for i in dir[2:end]
+        out = hcat(out, only_counts(i))
+    end
+
+    @info "Writing into the final bed."
+    write_bed(out)
 end
 end
