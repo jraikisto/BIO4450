@@ -18,3 +18,18 @@ function read_bed(path::String)
     end
     return out
 end
+
+only_counts(path) = map(readlines(path)) do y
+    parse(Int, split(y, '\t')[end])
+end
+
+#=function only_counts(path)
+    lines = readlines(path)
+    #lines = open(path)
+
+
+    return map(readlines(path)) do y
+        parse(Int, split(y, '\t')[end])
+    end
+end
+=#
