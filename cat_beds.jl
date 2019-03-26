@@ -33,7 +33,7 @@ function dont_parse(path::String)
     return out
 end
 
-function write_bed(bed::Array;o="output.bed")
+function write_bed(bed::Array; o="output.bed")
     t = open(o, "w")
 
     for r in 1:size(bed, 1)
