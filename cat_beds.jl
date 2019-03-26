@@ -7,6 +7,7 @@ function read_bed(path::String)
     for (id, line) in enumerate(lines)
         columns = split(line, '\t')
         out[id, :] .= map(columns) do y
+            #TODO: try and catch is horribly slow. Solution with all(isdigit, a) should prolly be preferred, but then there must be chek for 2E19 notation
             try
                 return parse(Float64, y)
             catch
