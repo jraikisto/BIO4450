@@ -5,7 +5,7 @@ function read_bed(path::String)
     #lines = open(path)
 
 
-    out = Array{Union{String, Float64}, 2}(undef, length(lines), width)
+    out = Array{Any, 2}(undef, length(lines), width)
     for (id, line) in enumerate(lines)
         columns = split(line, '\t')
         out[id, :] .= map(columns) do y
