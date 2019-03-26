@@ -50,8 +50,9 @@ function write_bed(bed::Array; o="output.bed")
     close(t)
 end
 
-function parse_all(dir::String)
-    dir = readdir(dir)
+function parse_all(path::String)
+    dir = readdir(path)
+    dir = path .* dir
     @info "Reading $(dir[1]) into the memory"
     out = dont_parse(dir[1])
 
