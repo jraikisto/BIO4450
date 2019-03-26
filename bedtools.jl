@@ -67,6 +67,7 @@ function parse_all(path::String)
 
     @info "Getting counts of each file"
     for i in dir[2:end]
+        @info i
         out = hcat(out, only_counts(i))
     end
 
