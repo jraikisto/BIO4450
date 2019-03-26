@@ -1,4 +1,8 @@
 #readdlm gives out error if column contains stuff like "asd 23; eewf 32;"
+module bedtools
+
+export read_bed, only_counts, dont_parse, write_bed
+
 function read_bed(path::String)
     lines = readlines(path)
     width=length(split(lines[1], '\t'))
@@ -44,4 +48,5 @@ function write_bed(bed::Array; o="output.bed")
         write(t, "\n")
     end
     close(t)
+end
 end
