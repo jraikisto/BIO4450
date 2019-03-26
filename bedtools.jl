@@ -52,6 +52,12 @@ end
 
 function parse_all(path::String)
     dir = readdir(path)
+
+    od = open("order.txt", "w")
+    od_in = dir .* "\n"
+    write(od, od_in...)
+    close(od)
+
     dir = path .* dir
     @info "Reading $(dir[1]) into the memory"
     out = dont_parse(dir[1])
