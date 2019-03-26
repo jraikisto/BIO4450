@@ -2,8 +2,6 @@
 function read_bed(path::String)
     lines = readlines(path)
     width=length(split(lines[1], '\t'))
-    #lines = open(path)
-
 
     out = Array{Any, 2}(undef, length(lines), width)
     for (id, line) in enumerate(lines)
@@ -26,8 +24,6 @@ end
 function dont_parse(path::String)
     lines = readlines(path)
     width=length(split(lines[1], '\t'))
-    #lines = open(path)
-
 
     out = Array{Any, 2}(undef, length(lines), width)
     for (id, line) in enumerate(lines)
