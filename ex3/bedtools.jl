@@ -11,7 +11,7 @@ function read_bed(path::String)
     for (id, line) in enumerate(lines)
         columns = split(line, '\t')
         out[id, :] .= map(columns) do y
-            if all(isdigit(replace(y, "." => "")))
+            if all(isdigit, replace(y, "." => ""))
                 return parse(Float64, y)
             else
                 return y
