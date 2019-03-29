@@ -12,6 +12,7 @@ function read_bed(path::String)
         columns = split(line, '\t')
         out[id, :] .= map(columns) do y
             if all(isdigit, replace(y, "." => ""))
+                println(y)
                 return parse(Float64, y)
             else
                 return y
